@@ -22,21 +22,21 @@ export function ResumeSection() {
             className="gradient-border glass grid items-center gap-8 rounded-3xl p-6 sm:p-10 lg:grid-cols-[0.9fr_1.1fr]"
           >
             <div className="overflow-hidden rounded-2xl border border-border bg-secondary/40">
-              <object
-                data={`${resumeAsset.url}#toolbar=0&view=FitH`}
-                type="application/pdf"
-                aria-label="Resume preview of Vishal Singla"
-                className="h-[380px] w-full"
+              <iframe
+                src={`${resumeAsset.url}#toolbar=0&view=FitH`}
+                title="Resume preview of Vishal Singla"
+                loading="lazy"
+                className="h-[380px] w-full bg-secondary/40"
+              />
+              <a
+                href={resumeAsset.url}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="flex items-center justify-center gap-2 border-t border-border py-3 text-xs font-medium text-muted-foreground transition-colors hover:text-primary"
               >
-                <div className="grid h-[380px] place-items-center p-6 text-center">
-                  <div>
-                    <FileText className="mx-auto h-8 w-8 text-primary" />
-                    <p className="mt-3 text-sm text-muted-foreground">
-                      Preview unavailable in this browser — download the PDF below.
-                    </p>
-                  </div>
-                </div>
-              </object>
+                <FileText className="h-3.5 w-3.5" />
+                Open full PDF in a new tab
+              </a>
             </div>
 
             <div>
