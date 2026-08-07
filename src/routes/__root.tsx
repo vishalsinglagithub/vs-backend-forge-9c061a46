@@ -84,6 +84,14 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       { property: "og:site_name", content: "Vishal Singla" },
       { name: "twitter:card", content: "summary_large_image" },
       { name: "theme-color", content: "#0B0B0F" },
+      { title: "Lovable App" },
+      { property: "og:title", content: "Lovable App" },
+      { name: "twitter:title", content: "Lovable App" },
+      { name: "description", content: "A premium personal portfolio website showcasing a Java Backend Developer's expertise in Spring Boot, REST APIs, and scalable backend systems." },
+      { property: "og:description", content: "A premium personal portfolio website showcasing a Java Backend Developer's expertise in Spring Boot, REST APIs, and scalable backend systems." },
+      { name: "twitter:description", content: "A premium personal portfolio website showcasing a Java Backend Developer's expertise in Spring Boot, REST APIs, and scalable backend systems." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/057ba6a0f18be1fc6f659df8937b632c/id-preview-b5781ddf--baf388f3-1724-43e4-9714-fe836a70a542.lovable.app-1786095877186.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/057ba6a0f18be1fc6f659df8937b632c/id-preview-b5781ddf--baf388f3-1724-43e4-9714-fe836a70a542.lovable.app-1786095877186.png" },
     ],
     links: [
       {
