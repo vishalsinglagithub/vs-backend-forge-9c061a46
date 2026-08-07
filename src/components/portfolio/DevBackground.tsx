@@ -63,14 +63,7 @@ export function DevBackground() {
           <path d="M420 90 L640 460" />
         </g>
         {[0, 1, 2].map((i) => (
-          <motion.circle
-            key={i}
-            r="3.2"
-            fill="oklch(0.705 0.187 47.6)"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: [0, 1, 1, 0] }}
-            transition={{ duration: 6, repeat: Infinity, delay: i * 2, ease: "linear" }}
-          >
+          <circle key={i} r="3.2" fill="oklch(0.705 0.187 47.6)" opacity="0.9">
             <animateMotion
               dur="6s"
               begin={`${i * 2}s`}
@@ -83,30 +76,29 @@ export function DevBackground() {
                     : "M120 160 L420 90 L760 220 L980 340"
               }
             />
-          </motion.circle>
+          </circle>
         ))}
         {NODES.map((n, i) => (
-          <g key={n.cx}>
+          <g key={n.cx} transform={`translate(${n.cx} ${n.cy})`}>
             <motion.circle
-              cx={n.cx}
-              cy={n.cy}
               r="6"
               fill="oklch(0.19 0.022 268)"
               stroke="oklch(0.705 0.187 47.6 / 60%)"
-              animate={{ r: [5, 7.5, 5] }}
+              initial={{ scale: 1 }}
+              animate={{ scale: [1, 1.25, 1] }}
               transition={{ duration: 4, repeat: Infinity, delay: i * 0.6 }}
             />
             <motion.circle
-              cx={n.cx}
-              cy={n.cy}
               r="14"
               fill="none"
               stroke="oklch(0.705 0.187 47.6 / 25%)"
-              animate={{ r: [8, 22], opacity: [0.5, 0] }}
+              initial={{ scale: 0.5, opacity: 0.5 }}
+              animate={{ scale: [0.5, 1.6], opacity: [0.5, 0] }}
               transition={{ duration: 3.5, repeat: Infinity, delay: i * 0.5 }}
             />
           </g>
         ))}
+
       </motion.svg>
 
       <motion.div style={{ x: sx, y: sy }} className="absolute inset-0">
