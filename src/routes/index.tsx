@@ -1,5 +1,6 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { motion } from "motion/react";
+import { ScrollProgress } from "@/components/portfolio/ScrollProgress";
 import { DevBackground } from "@/components/portfolio/DevBackground";
 import { Navbar } from "@/components/portfolio/Navbar";
 import { Hero } from "@/components/portfolio/Hero";
@@ -9,7 +10,6 @@ import { Impact } from "@/components/portfolio/Impact";
 import { TechStack } from "@/components/portfolio/TechStack";
 import { Skills } from "@/components/portfolio/Skills";
 import { ResumeSection } from "@/components/portfolio/ResumeSection";
-import { Contact } from "@/components/portfolio/Contact";
 import { Footer } from "@/components/portfolio/Footer";
 
 const TITLE = "Vishal Singla | Java Spring Boot Backend Developer";
@@ -75,6 +75,7 @@ function Index() {
       transition={{ duration: 0.6 }}
       className="relative min-h-screen overflow-x-hidden"
     >
+      <ScrollProgress />
       <DevBackground />
       <Navbar />
       <Hero />
@@ -84,7 +85,6 @@ function Index() {
       <Skills />
       <TechStack />
       <ResumeSection />
-      <Contact />
       <Footer />
     </motion.main>
   );
