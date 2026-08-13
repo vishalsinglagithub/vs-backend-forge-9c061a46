@@ -74,11 +74,11 @@ export function Hero() {
               <ArrowRight className="h-4 w-4 transition-transform duration-300 group-hover:translate-x-0.5" />
             </a>
             <a
-              href="#contact"
+              href={`mailto:${CONTACT.email}`}
               className="inline-flex items-center gap-2 rounded-xl border border-border px-5 py-3 text-sm font-semibold text-muted-foreground transition-colors hover:border-primary/50 hover:text-foreground"
             >
               <Mail className="h-4 w-4" />
-              Contact Me
+              Email Me
             </a>
             <div className="flex items-center gap-2">
               {[
