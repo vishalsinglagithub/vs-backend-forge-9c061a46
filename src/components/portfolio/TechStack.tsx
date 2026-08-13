@@ -24,7 +24,7 @@ const ICONS: Record<string, LucideIcon> = {
 
 export function TechStack() {
   return (
-    <section id="skills" className="relative">
+    <section id="stack" className="relative">
       <div className="section-shell">
         <SectionHeading
           eyebrow="Tech Stack"
