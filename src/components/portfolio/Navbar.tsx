@@ -35,6 +35,17 @@ export function Navbar() {
     return () => observer.disconnect();
   }, []);
 
+  const scrollTo = (href: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const target = document.querySelector(href);
+    if (!target) return;
+    event.preventDefault();
+    const top = target.getBoundingClientRect().top + window.scrollY - 88;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top, behavior: reduce ? "auto" : "smooth" });
+    setActive(href);
+    setOpen(false);
+  };
+
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
