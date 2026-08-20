@@ -61,6 +61,7 @@ export function Navbar() {
       >
         <a
           href="#home"
+          onClick={scrollTo("#home")}
           className="group flex items-center gap-3"
           aria-label="Vishal Singla — home"
         >
