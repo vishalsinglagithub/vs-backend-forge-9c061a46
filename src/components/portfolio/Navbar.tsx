@@ -73,14 +73,21 @@ export function Navbar() {
           </span>
         </a>
 
-        <ul className="hidden items-center gap-1 lg:flex">
-          {NAV_LINKS.map((link) => (
-            <li key={link.href}>
-              <a
+        <ul className="hidden items-center gap-0.5 md:flex">
+          {NAV_LINKS.map((link, i) => (
+            <motion.li
+              key={link.href}
+              initial={{ opacity: 0, y: -12 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.45, delay: 0.25 + i * 0.06, ease: "easeOut" }}
+            >
+              <motion.a
                 href={link.href}
                 onClick={scrollTo(link.href)}
                 aria-current={active === link.href ? "page" : undefined}
-                className={`relative rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
+                whileHover={{ y: -2 }}
+                whileTap={{ scale: 0.96 }}
+                className={`relative block rounded-lg px-2.5 py-2 text-[13px] font-medium transition-colors lg:px-3 lg:text-sm ${
                   active === link.href
                     ? "text-foreground"
                     : "text-muted-foreground hover:text-foreground"
@@ -94,8 +101,8 @@ export function Navbar() {
                     transition={{ type: "spring", stiffness: 320, damping: 30 }}
                   />
                 )}
-              </a>
-            </li>
+              </motion.a>
+            </motion.li>
           ))}
         </ul>
 
@@ -112,7 +119,7 @@ export function Navbar() {
             onClick={() => setOpen((v) => !v)}
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
-            className="grid h-10 w-10 place-items-center rounded-xl border border-border text-foreground lg:hidden"
+            className="grid h-10 w-10 place-items-center rounded-xl border border-border text-foreground md:hidden"
           >
             {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
           </button>
@@ -126,7 +133,7 @@ export function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="overflow-hidden lg:hidden"
+            className="overflow-hidden md:hidden"
           >
             <ul className="mx-5 mt-3 grid gap-1 rounded-2xl border border-border bg-card/95 p-3 backdrop-blur-xl">
               {NAV_LINKS.map((link) => (

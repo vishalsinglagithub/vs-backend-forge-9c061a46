@@ -38,20 +38,50 @@ export function Hero() {
             variants={item}
             className="mt-2 text-5xl font-bold leading-[1.05] sm:text-6xl lg:text-7xl"
           >
-            {"Vishal Singla".split("").map((char, i) => (
+            {["Vishal", "Singla"].map((word, w) => (
               <motion.span
-                key={`${char}-${i}`}
-                className={`inline-block ${i > 6 ? "text-gradient" : ""}`}
-                initial={{ opacity: 0, y: 32, rotateX: -70, filter: "blur(8px)" }}
-                animate={{ opacity: 1, y: 0, rotateX: 0, filter: "blur(0px)" }}
+                key={word}
+                className="mr-[0.3em] inline-block whitespace-nowrap"
+                animate={{ y: [0, -6, 0] }}
                 transition={{
-                  duration: 0.7,
-                  delay: 0.35 + i * 0.05,
-                  ease: [0.22, 1, 0.36, 1] as const,
+                  duration: 5,
+                  repeat: Infinity,
+                  ease: "easeInOut",
+                  delay: w * 0.9,
                 }}
-                whileHover={{ y: -8, scale: 1.08, transition: { duration: 0.25 } }}
+                whileHover={{ scale: 1.04, transition: { duration: 0.25 } }}
               >
-                {char === " " ? "\u00A0" : char}
+                {word.split("").map((char, i) => {
+                  const index = w * 7 + i;
+                  return (
+                    <motion.span
+                      key={`${char}-${i}`}
+                      className={`inline-block ${w === 1 ? "text-gradient" : ""}`}
+                      initial={{ opacity: 0, y: 34, rotateX: -70, filter: "blur(8px)" }}
+                      animate={{
+                        opacity: 1,
+                        y: [0, -10, 0],
+                        rotateX: 0,
+                        filter: "blur(0px)",
+                      }}
+                      transition={{
+                        opacity: { duration: 0.6, delay: 0.35 + index * 0.05 },
+                        rotateX: { duration: 0.7, delay: 0.35 + index * 0.05 },
+                        filter: { duration: 0.6, delay: 0.35 + index * 0.05 },
+                        y: {
+                          duration: 2.6,
+                          repeat: Infinity,
+                          repeatDelay: 1.4,
+                          delay: 1.1 + index * 0.09,
+                          ease: "easeInOut",
+                        },
+                      }}
+                      whileHover={{ scale: 1.14, transition: { duration: 0.2 } }}
+                    >
+                      {char}
+                    </motion.span>
+                  );
+                })}
               </motion.span>
             ))}
           </motion.h1>
