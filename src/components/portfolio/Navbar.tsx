@@ -35,6 +35,17 @@ export function Navbar() {
     return () => observer.disconnect();
   }, []);
 
+  const scrollTo = (href: string) => (event: React.MouseEvent<HTMLAnchorElement>) => {
+    const target = document.querySelector(href);
+    if (!target) return;
+    event.preventDefault();
+    const top = target.getBoundingClientRect().top + window.scrollY - 88;
+    const reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
+    window.scrollTo({ top, behavior: reduce ? "auto" : "smooth" });
+    setActive(href);
+    setOpen(false);
+  };
+
   return (
     <motion.header
       initial={{ y: -80, opacity: 0 }}
@@ -50,6 +61,7 @@ export function Navbar() {
       >
         <a
           href="#home"
+          onClick={scrollTo("#home")}
           className="group flex items-center gap-3"
           aria-label="Vishal Singla — home"
         >
@@ -66,6 +78,7 @@ export function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
+                onClick={scrollTo(link.href)}
                 aria-current={active === link.href ? "page" : undefined}
                 className={`relative rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                   active === link.href
@@ -120,7 +133,7 @@ export function Navbar() {
                 <li key={link.href}>
                   <a
                     href={link.href}
-                    onClick={() => setOpen(false)}
+                    onClick={scrollTo(link.href)}
                     className="block rounded-lg px-3 py-2.5 text-sm font-medium text-muted-foreground transition-colors hover:bg-secondary hover:text-foreground"
                   >
                     {link.label}

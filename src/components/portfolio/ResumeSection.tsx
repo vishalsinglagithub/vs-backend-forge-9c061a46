@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { Download, FileText } from "lucide-react";
 import resumeAsset from "@/assets/resume.pdf.asset.json";
+import resumePreview from "@/assets/resume-preview.jpg.asset.json";
 import { Reveal, SectionHeading } from "./motion-primitives";
 
 export function ResumeSection() {
@@ -22,12 +23,24 @@ export function ResumeSection() {
             className="gradient-border glass grid items-center gap-8 rounded-3xl p-6 sm:p-10 lg:grid-cols-[0.9fr_1.1fr]"
           >
             <div className="overflow-hidden rounded-2xl border border-border bg-secondary/40">
-              <iframe
-                src={`${resumeAsset.url}#toolbar=0&view=FitH`}
-                title="Resume preview of Vishal Singla"
-                loading="lazy"
-                className="h-[380px] w-full bg-secondary/40"
-              />
+              <a
+                href={resumeAsset.url}
+                target="_blank"
+                rel="noreferrer noopener"
+                className="group block overflow-hidden"
+                aria-label="Open Vishal Singla's resume PDF in a new tab"
+              >
+                <motion.img
+                  src={resumePreview.url}
+                  alt="Preview of Vishal Singla's Java backend developer resume"
+                  loading="lazy"
+                  initial={{ opacity: 0, scale: 0.97 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true, amount: 0.3 }}
+                  transition={{ duration: 0.7, ease: [0.22, 1, 0.36, 1] as const }}
+                  className="w-full transition-transform duration-500 group-hover:scale-[1.03]"
+                />
+              </a>
               <a
                 href={resumeAsset.url}
                 target="_blank"
