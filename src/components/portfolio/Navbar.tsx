@@ -133,7 +133,7 @@ export function Navbar() {
             animate={{ height: "auto", opacity: 1 }}
             exit={{ height: 0, opacity: 0 }}
             transition={{ duration: 0.3 }}
-            className="overflow-hidden lg:hidden"
+            className="overflow-hidden md:hidden"
           >
             <ul className="mx-5 mt-3 grid gap-1 rounded-2xl border border-border bg-card/95 p-3 backdrop-blur-xl">
               {NAV_LINKS.map((link) => (
