@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { Download, FileText } from "lucide-react";
 import resumeAsset from "@/assets/resume.pdf.asset.json";
+import resumePreview from "@/assets/resume-preview.jpg.asset.json";
 import { Reveal, SectionHeading } from "./motion-primitives";
 
 export function ResumeSection() {
