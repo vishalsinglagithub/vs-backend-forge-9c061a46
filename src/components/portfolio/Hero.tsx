@@ -38,8 +38,31 @@ export function Hero() {
             variants={item}
             className="mt-2 text-5xl font-bold leading-[1.05] sm:text-6xl lg:text-7xl"
           >
-            Vishal <span className="text-gradient">Singla</span>
+            {"Vishal Singla".split("").map((char, i) => (
+              <motion.span
+                key={`${char}-${i}`}
+                className={`inline-block ${i > 6 ? "text-gradient" : ""}`}
+                initial={{ opacity: 0, y: 32, rotateX: -70, filter: "blur(8px)" }}
+                animate={{ opacity: 1, y: 0, rotateX: 0, filter: "blur(0px)" }}
+                transition={{
+                  duration: 0.7,
+                  delay: 0.35 + i * 0.05,
+                  ease: [0.22, 1, 0.36, 1] as const,
+                }}
+                whileHover={{ y: -8, scale: 1.08, transition: { duration: 0.25 } }}
+              >
+                {char === " " ? "\u00A0" : char}
+              </motion.span>
+            ))}
           </motion.h1>
+          <motion.span
+            aria-hidden
+            className="mt-3 block h-[3px] w-40 origin-left rounded-full"
+            style={{ background: "var(--gradient-accent)" }}
+            initial={{ scaleX: 0, opacity: 0 }}
+            animate={{ scaleX: 1, opacity: 1 }}
+            transition={{ duration: 1, delay: 1.1, ease: "easeOut" }}
+          />
 
           <motion.p
             variants={item}
