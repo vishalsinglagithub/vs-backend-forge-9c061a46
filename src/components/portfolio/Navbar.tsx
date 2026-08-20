@@ -77,6 +77,7 @@ export function Navbar() {
             <li key={link.href}>
               <a
                 href={link.href}
+                onClick={scrollTo(link.href)}
                 aria-current={active === link.href ? "page" : undefined}
                 className={`relative rounded-lg px-3 py-2 text-sm font-medium transition-colors ${
                   active === link.href
