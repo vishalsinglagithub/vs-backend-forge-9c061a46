@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import resumeAsset from "@/assets/resume.pdf.asset.json";
+import { downloadResume } from "./resume-download";
 import { CONTACT } from "./data";
 import { CodeTerminal } from "./CodeTerminal";
 

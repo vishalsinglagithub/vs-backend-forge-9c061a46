@@ -5,6 +5,7 @@ import { Menu, X } from "lucide-react";
 import { useEffect, useState } from "react";
 import { NAV_LINKS } from "./data";
 import resumeAsset from "@/assets/resume.pdf.asset.json";
+import { downloadResume } from "./resume-download";
 
 export function Navbar() {
   const [scrolled, setScrolled] = useState(false);
