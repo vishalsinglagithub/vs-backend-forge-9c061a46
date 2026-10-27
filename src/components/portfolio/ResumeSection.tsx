@@ -4,6 +4,7 @@ import { motion } from "motion/react";
 import { Download, FileText } from "lucide-react";
 import resumeAsset from "@/assets/resume.pdf.asset.json";
 import resumePreview from "@/assets/resume-preview.jpg.asset.json";
+import { downloadResume } from "./resume-download";
 import { Reveal, SectionHeading } from "./motion-primitives";
 
 export function ResumeSection() {
@@ -65,6 +66,7 @@ export function ResumeSection() {
               <a
                 href={resumeAsset.url}
                 download="Vishal_Singla_Resume.pdf"
+                onClick={downloadResume}
                 className="mt-8 inline-flex items-center gap-2 rounded-xl bg-primary px-6 py-3.5 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:glow-ring hover:brightness-110"
               >
                 <Download className="h-4 w-4" />

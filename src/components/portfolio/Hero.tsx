@@ -3,6 +3,7 @@
 import { motion } from "motion/react";
 import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
 import resumeAsset from "@/assets/resume.pdf.asset.json";
+import { downloadResume } from "./resume-download";
 import { CONTACT } from "./data";
 import { CodeTerminal } from "./CodeTerminal";
 
@@ -114,6 +115,7 @@ export function Hero() {
             <a
               href={resumeAsset.url}
               download="Vishal_Singla_Resume.pdf"
+              onClick={downloadResume}
               className="group inline-flex items-center gap-2 rounded-xl bg-primary px-5 py-3 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:glow-ring hover:brightness-110"
             >
               <Download className="h-4 w-4" />
