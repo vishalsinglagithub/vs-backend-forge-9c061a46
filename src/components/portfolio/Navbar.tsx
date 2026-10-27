@@ -110,6 +110,7 @@ export function Navbar() {
           <a
             href={resumeAsset.url}
             download="Vishal_Singla_Resume.pdf"
+            onClick={downloadResume}
             className="hidden rounded-xl bg-primary px-4 py-2 text-sm font-semibold text-primary-foreground transition-all duration-300 hover:glow-ring hover:brightness-110 sm:inline-flex"
           >
             Resume
